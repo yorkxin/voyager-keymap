@@ -37,7 +37,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v7
         with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
           fetch-depth: 0             # otherwise, you will fail to push refs to dest repo
 
       - name: Git setup
@@ -51,6 +50,6 @@ jobs:
       - name: task sync
         run: task sync
 
-      - name: Git push
+      - name: Git Push
         run: |
-          git push --all
+          git push origin main oryx
