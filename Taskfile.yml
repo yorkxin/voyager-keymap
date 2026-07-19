@@ -13,50 +13,41 @@ tasks:
     - task: build
 
   sync:
-    vars:
-      METADATA:
-        sh: |
-          curl --location 'https://oryx.zsa.io/graphql'  \
-            --header 'Content-Type: application/json'  \
-            --data '{"query":"query getLayout($hashId: String!, $revisionId: String!, $geometry: String) {layout(hashId: $hashId, geometry: $geometry, revisionId: $revisionId) {  revision { hashId, qmkVersion, title }}}","variables":{"hashId":"{{.LAYOUT_ID}}","geometry":"{{.GEOMETRY}}","revisionId":"latest"}}' | jq -c '.data.layout.revision | [.hashId, .qmkVersion, .title]' 
     cmds:
       # TODO require running on main branch
       - git fetch origin main
       - task: pull-oryx
-        vars:
-          METADATA: '{{.METADATA}}'
       - git merge --no-edit -Xignore-all-space oryx
-
+  
   pull-oryx:
     desc: pull latest version of voyager source file
     vars:
-      HASH_ID:
-        sh: echo '{{.METADATA}}' | jq -r '.[0]' 
-      CHANGE_DESC:
-        sh: echo '{{.METADATA}}' | jq -r '.[2]' 
-      QMK_VERSION:
-        sh: echo '{{.METADATA}}' | jq -r '.[1]' | xargs printf "%.0f"
-      # TODO stop and ask for worktree creation if missing
       ORYX_WORKTREE_DIR:
+        # TODO stop and ask for worktree creation if missing
         sh: |
            git worktree list --porcelain | \
              grep -a2 heads/oryx | grep -E "^worktree " | awk '{ print $2}'
+      GQL_QUERY: '{"query":"query getLayout($hashId: String!, $revisionId: String!, $geometry: String) {layout(hashId: $hashId, geometry: $geometry, revisionId: $revisionId) {  revision { hashId, qmkVersion, title }}}","variables":{"hashId":"{{.LAYOUT_ID}}","geometry":"{{.GEOMETRY}}","revisionId":"latest"}}'
+      METADATA:
+        sh: |
+          curl --location 'https://oryx.zsa.io/graphql'  \
+            --header 'Content-Type: application/json'  \
+            --data '{{.GQL_QUERY}}' \
+            | jq -c '.data.layout.revision'
+      HASH_ID:
+        ref: '(.METADATA | fromJson).hashId' 
+      CHANGE_DESC:
+        ref: '(.METADATA | fromJson).title' 
     dir: '{{.ORYX_WORKTREE_DIR}}'
     cmds:
       - |
           echo "pwd: $(pwd)"
-      - |
-          jq -crn \
-            --arg hash_id '{{.HASH_ID}}' \
-            --arg qmk_version '{{.QMK_VERSION}}' \
-            '{hash_id: $hash_id, qmk_version: $qmk_version}' \
-            > metadata.json
-      - cat metadata.json
-      - curl -L "https://oryx.zsa.io/source/{{.HASH_ID}}" -o source.zip
+      - cmd: curl -L "https://oryx.zsa.io/source/{{.HASH_ID}}" -o source.zip
       - unzip -oj source.zip '*_source/*' -d 'keyboards/zsa/voyager/keymaps/yorkxin'
       - defer: rm source.zip
+      - echo '{{.METADATA}}' > metadata.json
       - git add keyboards metadata.json
-      - |
+      - cmd: |
           printf "✨(oryx): %s\n" "{{.CHANGE_DESC}}" | git commit -F - || echo "No layout change"
 
   docker_image:
@@ -70,7 +61,7 @@ tasks:
       normalized_layout_geometry: 
         sh: echo "{{.GEOMETRY}}" | sed 's/\//_/g'
       QMK_VERSION:
-        sh: cat metadata.json | jq -r ".qmk_version"
+        sh: cat metadata.json | jq -r ".qmkVersion" | xargs printf "%.0f"
     cmds:
       - docker volume create qmk_firmware_cache
       # Build the layout
