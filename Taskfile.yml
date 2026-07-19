@@ -23,7 +23,7 @@ tasks:
   ensure-oryx-worktree:
     desc: ensure worktree folder for oryx exists
     if: |
-      !(git worktree list --porcelain | grep -q "branch refs/heads/oryx")
+      ! (git worktree list --porcelain | grep -q "branch refs/heads/oryx")
     cmds:
       - git worktree add /tmp/voyager-keymap/oryx oryx
 
