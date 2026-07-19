@@ -15,9 +15,9 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(10, KC_Z)
-#define DUAL_FUNC_1 LT(11, KC_F18)
-#define DUAL_FUNC_2 LT(14, KC_F)
+#define DUAL_FUNC_0 LT(14, KC_F5)
+#define DUAL_FUNC_1 LT(6, KC_S)
+#define DUAL_FUNC_2 LT(10, KC_F10)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -42,11 +42,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     KC_PERC,        KC_COLN,                                        KC_NO,          KC_TRANSPARENT
   ),
   [3] = LAYOUT_voyager(
-    MAC_LOCK,       KC_F14,         KC_F15,         KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,
+    LALT(LCTL(KC_DELETE)),KC_F14,         KC_F15,         KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
     KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
     KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
-                                                    KC_NO,          KC_NO,                                          LALT(LCTL(KC_DELETE)),KC_NO
+                                                    KC_NO,          KC_NO,                                          MAC_LOCK,       KC_NO
   ),
   [4] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
