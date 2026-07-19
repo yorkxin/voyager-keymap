@@ -10,6 +10,7 @@ enum custom_keycodes {
   ST_MACRO_0,
   ST_MACRO_1,
   MAC_LOCK,
+  CHORDAL_CMD_TAB, // cordal cmd tab, like TailorKey
 };
 
 
@@ -20,21 +21,21 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
-    KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSLS,        
-    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,       
+    KC_GRAVE,       KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSLS,
+    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
     MT(MOD_LCTL, KC_ESCAPE),MT(MOD_LCTL, KC_A),MT(MOD_LALT, KC_S),MT(MOD_LGUI, KC_D),MT(MOD_LSFT, KC_F),KC_G,                                           KC_H,           MT(MOD_RSFT, KC_J),MT(MOD_RGUI, KC_K),MT(MOD_RALT, KC_L),MT(MOD_RCTL, KC_SCLN),KC_QUOTE,       
     KC_CAPS,        KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       LT(3, KC_EQUAL),
                                                     LT(1, KC_ENTER),KC_LEFT_SHIFT,                                  DUAL_FUNC_0,    LT(2, KC_SPACE)
   ),
   [1] = LAYOUT_voyager(
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
     KC_DELETE,      LSFT(KC_TAB),   LGUI(LSFT(KC_Z)),LGUI(KC_Z),     KC_TAB,         LGUI(KC_X),                                     KC_DELETE,      KC_LBRC,        LSFT(KC_TAB),   KC_TAB,         KC_RBRC,        KC_NO,          
     KC_BSPC,        KC_LEFT_CTRL,   KC_LEFT_ALT,    KC_LEFT_GUI,    KC_LEFT_SHIFT,  LGUI(KC_C),                                     KC_PSCR,        DUAL_FUNC_1,    KC_UP,          KC_DOWN,        DUAL_FUNC_2,    LGUI(LSFT(KC_Z)),
     LGUI(KC_A),     KC_NO,          LGUI(LSFT(KC_G)),LGUI(KC_G),     LGUI(KC_F),     LGUI(KC_V),                                     KC_INSERT,      LGUI(KC_LEFT),  KC_PAGE_UP,     KC_PGDN,        LGUI(KC_RIGHT), LGUI(KC_Z),     
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 ST_MACRO_0,     ST_MACRO_1
   ),
   [2] = LAYOUT_voyager(
-    KC_NO,          KC_NO,          KC_LPRN,        KC_RPRN,        KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          KC_NO,          KC_LPRN,        KC_RPRN,        KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
     KC_EXLM,        KC_LBRC,        KC_LCBR,        KC_RCBR,        KC_RBRC,        KC_QUES,                                        KC_GRAVE,       KC_DELETE,      LSFT(KC_TAB),   KC_INSERT,      KC_ESCAPE,      KC_NO,          
     KC_HASH,        KC_CIRC,        KC_EQUAL,       KC_UNDS,        KC_DLR,         KC_ASTR,                                        KC_DQUO,        KC_BSPC,        KC_TAB,         KC_SPACE,       KC_ENTER,       KC_NO,          
     KC_NO,          KC_LABK,        KC_PIPE,        KC_MINUS,       KC_RABK,        KC_SLASH,                                       KC_QUOTE,       KC_TILD,        KC_AMPR,        KC_AT,          KC_SLASH,       KC_NO,          
@@ -42,16 +43,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_voyager(
     MAC_LOCK,       KC_F14,         KC_F15,         KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, 
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
+    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
                                                     KC_NO,          KC_NO,                                          LALT(LCTL(KC_DELETE)),KC_NO
   ),
   [4] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_MS_BTN5,     KC_MS_BTN4,     KC_MS_BTN3,     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, MT(MOD_LGUI, KC_MS_BTN2),KC_MS_BTN1,     KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
                                                     DRAG_SCROLL,    KC_TRANSPARENT,                                 KC_MS_BTN1,     KC_TRANSPARENT
   ),
 };
@@ -86,7 +87,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo10, KC_F9),
     COMBO(combo11, KC_F10),
     COMBO(combo12, OSM(MOD_HYPR)),
-    COMBO(combo13, KC_TRANSPARENT),
+    COMBO(combo13, CHORDAL_CMD_TAB),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -160,7 +161,7 @@ bool rgb_matrix_indicators_user(void) {
   if (rawhid_state.rgb_control) {
       return false;
   }
-  if (!keyboard_config.disable_layer_led) { 
+  if (!keyboard_config.disable_layer_led) {
     switch (biton32(layer_state)) {
       case 0:
         set_layer_color(0);
@@ -237,8 +238,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           register_code16(LALT(KC_BSPC));
         } else {
           unregister_code16(LALT(KC_BSPC));
-        }  
-      }  
+        }
+      }
       return false;
     case DUAL_FUNC_1:
       if (record->tap.count > 0) {
@@ -252,8 +253,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           register_code16(LALT(KC_LEFT));
         } else {
           unregister_code16(LALT(KC_LEFT));
-        }  
-      }  
+        }
+      }
       return false;
     case DUAL_FUNC_2:
       if (record->tap.count > 0) {
@@ -267,14 +268,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           register_code16(LALT(KC_RIGHT));
         } else {
           unregister_code16(LALT(KC_RIGHT));
-        }  
-      }  
+        }
+      }
       return false;
     case RGB_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
       }
       return false;
+    case CHORDAL_CMD_TAB:
+      if (record->event.pressed) {
+        layer_on(1);
+        register_code(KC_LCMD);
+        tap_code(KC_TAB);
+      } else {
+        unregister_code(KC_LCMD);
+        layer_off(1);
+      }
   }
   return true;
 }
