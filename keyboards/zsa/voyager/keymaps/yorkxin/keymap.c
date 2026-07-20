@@ -89,7 +89,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo11, KC_F10),
     COMBO(combo12, OSM(MOD_HYPR)),
     COMBO(combo13, CHORDAL_CMD_TAB),
-    COMBO(combo14, TT(1)),
+    COMBO(combo14, CHORDAL_CMD_TAB),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
