@@ -3,6 +3,7 @@
 #define SERIAL_NUMBER "r9RqJ/AzmnLx"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 15
+#define COMBO_ONLY_FROM_LAYER 0
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
 #define TAPPING_TERM_PER_KEY
