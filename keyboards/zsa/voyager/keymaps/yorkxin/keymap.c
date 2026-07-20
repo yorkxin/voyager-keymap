@@ -17,12 +17,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(12, KC_I)
-#define DUAL_FUNC_1 LT(14, KC_E)
-#define DUAL_FUNC_2 LT(8, KC_J)
-#define DUAL_FUNC_3 LT(3, KC_T)
-#define DUAL_FUNC_4 LT(10, KC_F18)
-#define DUAL_FUNC_5 LT(11, KC_Z)
+#define DUAL_FUNC_0 LT(12, KC_1)
+#define DUAL_FUNC_1 LT(1, KC_2)
+#define DUAL_FUNC_2 LT(9, KC_K)
+#define DUAL_FUNC_3 LT(7, KC_Y)
+#define DUAL_FUNC_4 LT(3, KC_F20)
+#define DUAL_FUNC_5 LT(12, KC_8)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -62,9 +62,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [5] = LAYOUT_voyager(
     LALT(LCTL(KC_DELETE)),KC_F14,         KC_F15,         KC_NO,          KC_NO,          KC_NO,                                          KC_BRIGHTNESS_DOWN,KC_BRIGHTNESS_UP,KC_AUDIO_MUTE,  KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,KC_NO,          
-    KC_NO,          TO(0),          TO(2),          KC_NO,          KC_NO,          RGB_TOG,                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          TO(0),          TO(2),          KC_NO,          LED_LEVEL,      RGB_TOG,                                        KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          TOGGLE_LAYER_COLOR,                                KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
-    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          RGB_MODE_FORWARD,                                KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, 
+    EE_CLR,         KC_NO,          KC_NO,          KC_NO,          KC_NO,          RGB_MODE_FORWARD,                                KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, 
                                                     KC_NO,          KC_NO,                                          MAC_LOCK,       KC_NO
   ),
   [6] = LAYOUT_voyager(
