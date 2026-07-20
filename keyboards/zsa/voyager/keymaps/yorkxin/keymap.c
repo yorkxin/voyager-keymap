@@ -376,12 +376,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
     case CHORDAL_CMD_TAB:
       if (record->event.pressed) {
-        layer_on(1);
+        layer_on(7);
         register_code(KC_LCMD);
         tap_code(KC_TAB);
       } else {
         unregister_code(KC_LCMD);
-        layer_off(1);
+        layer_off(7);
       }
   }
   return true;
