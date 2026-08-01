@@ -17,12 +17,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(9, KC_F7)
-#define DUAL_FUNC_1 LT(2, KC_W)
-#define DUAL_FUNC_2 LT(2, KC_F15)
-#define DUAL_FUNC_3 LT(5, KC_Y)
-#define DUAL_FUNC_4 LT(3, KC_J)
-#define DUAL_FUNC_5 LT(3, KC_F14)
+#define DUAL_FUNC_0 LT(13, KC_I)
+#define DUAL_FUNC_1 LT(14, KC_V)
+#define DUAL_FUNC_2 LT(7, KC_R)
+#define DUAL_FUNC_3 LT(8, KC_F13)
+#define DUAL_FUNC_4 LT(7, KC_4)
+#define DUAL_FUNC_5 LT(4, KC_D)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -72,7 +72,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_MS_BTN5,     KC_MS_BTN4,     KC_MS_BTN3,     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, MT(MOD_LGUI, KC_MS_BTN2),KC_MS_BTN1,     KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                    DRAG_SCROLL,    KC_TRANSPARENT,                                 KC_MS_BTN1,     KC_TRANSPARENT
+                                                    KC_NO,          KC_TRANSPARENT,                                 KC_MS_BTN1,     KC_TRANSPARENT
+  ),
+  [7] = LAYOUT_voyager(
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_LEFT,        KC_UP,          KC_DOWN,        KC_RIGHT,       KC_NO,          
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
+                                                    KC_NO,          KC_NO,                                          LSFT(KC_TAB),   KC_TAB
   ),
   [7] = LAYOUT_voyager(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
