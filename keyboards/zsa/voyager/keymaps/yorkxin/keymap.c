@@ -18,12 +18,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(1, KC_Y)
-#define DUAL_FUNC_1 LT(8, KC_W)
-#define DUAL_FUNC_2 LT(10, KC_O)
-#define DUAL_FUNC_3 LT(8, KC_F16)
-#define DUAL_FUNC_4 LT(5, KC_M)
-#define DUAL_FUNC_5 LT(8, KC_F8)
+#define DUAL_FUNC_0 LT(4, KC_F22)
+#define DUAL_FUNC_1 LT(9, KC_F21)
+#define DUAL_FUNC_2 LT(3, KC_F7)
+#define DUAL_FUNC_3 LT(15, KC_P)
+#define DUAL_FUNC_4 LT(7, KC_F17)
+#define DUAL_FUNC_5 LT(14, KC_G)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -121,7 +121,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo9, KC_F8),
     COMBO(combo10, KC_F9),
     COMBO(combo11, KC_F10),
-    COMBO(combo12, OSM(MOD_HYPR)),
+    COMBO(combo12, KC_CAPS),
     COMBO(combo13, CHORDAL_CMD_TAB),
     COMBO(combo14, KC_LEFT_GUI),
 };
