@@ -14,12 +14,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(4, KC_P)
-#define DUAL_FUNC_1 LT(6, KC_U)
-#define DUAL_FUNC_2 LT(15, KC_F20)
-#define DUAL_FUNC_3 LT(15, KC_F24)
-#define DUAL_FUNC_4 LT(5, KC_6)
-#define DUAL_FUNC_5 LT(14, KC_B)
+#define DUAL_FUNC_0 LT(2, KC_F5)
+#define DUAL_FUNC_1 LT(11, KC_F2)
+#define DUAL_FUNC_2 LT(10, KC_F6)
+#define DUAL_FUNC_3 LT(8, KC_X)
+#define DUAL_FUNC_4 LT(5, KC_F8)
+#define DUAL_FUNC_5 LT(11, KC_I)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -86,12 +86,8 @@ const uint16_t PROGMEM combo8[] = { KC_7, KC_U, COMBO_END};
 const uint16_t PROGMEM combo9[] = { KC_8, KC_I, COMBO_END};
 const uint16_t PROGMEM combo10[] = { KC_9, KC_O, COMBO_END};
 const uint16_t PROGMEM combo11[] = { KC_0, KC_P, COMBO_END};
-const uint16_t PROGMEM combo12[] = { LT(4, KC_SPACE), DUAL_FUNC_0, COMBO_END};
-const uint16_t PROGMEM combo13[] = { KC_B, LT(1, KC_ENTER), COMBO_END};
-const uint16_t PROGMEM combo14[] = { KC_0, KC_RBRC, COMBO_END};
-const uint16_t PROGMEM combo15[] = { KC_RBRC, KC_MINUS, COMBO_END};
-const uint16_t PROGMEM combo16[] = { KC_0, KC_RBRC, COMBO_END};
-const uint16_t PROGMEM combo17[] = { KC_RBRC, KC_MINUS, COMBO_END};
+const uint16_t PROGMEM combo12[] = { KC_0, KC_RBRC, COMBO_END};
+const uint16_t PROGMEM combo13[] = { LT(1, KC_ENTER), KC_LEFT_SHIFT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_F11),
@@ -106,12 +102,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo9, KC_F8),
     COMBO(combo10, KC_F9),
     COMBO(combo11, KC_F10),
-    COMBO(combo12, KC_CAPS),
-    COMBO(combo13, KC_LEFT_GUI),
-    COMBO(combo14, KC_RBRC),
-    COMBO(combo15, KC_F12),
-    COMBO(combo16, KC_LBRC),
-    COMBO(combo17, KC_F12),
+    COMBO(combo12, KC_LBRC),
+    COMBO(combo13, KC_HYPR),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {

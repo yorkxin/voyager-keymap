@@ -1,8 +1,8 @@
 #define FLOW_TAP_TERM 100
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "r9RqJ/m57VJV"
+#define SERIAL_NUMBER "r9RqJ/Yn3ZXP"
 #define LAYER_STATE_8BIT
-#define COMBO_COUNT 18
+#define COMBO_COUNT 14
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
 #define TAPPING_TERM_PER_KEY
