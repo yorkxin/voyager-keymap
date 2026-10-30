@@ -16,12 +16,12 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(2, KC_F5)
-#define DUAL_FUNC_1 LT(11, KC_F2)
-#define DUAL_FUNC_2 LT(10, KC_F6)
-#define DUAL_FUNC_3 LT(8, KC_X)
-#define DUAL_FUNC_4 LT(5, KC_F8)
-#define DUAL_FUNC_5 LT(11, KC_I)
+#define DUAL_FUNC_0 LT(15, KC_D)
+#define DUAL_FUNC_1 LT(6, KC_F)
+#define DUAL_FUNC_2 LT(12, KC_F14)
+#define DUAL_FUNC_3 LT(13, KC_T)
+#define DUAL_FUNC_4 LT(10, KC_C)
+#define DUAL_FUNC_5 LT(8, KC_F24)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [4] = LAYOUT_voyager(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_LBRC,        KC_LPRN,        KC_RPRN,        KC_RBRC,        KC_NO,
-    KC_NO,          KC_LEFT_CTRL,   KC_RIGHT_ALT,   KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_NO,                                          KC_NO,          KC_CIRC,        KC_EXLM,        KC_HASH,        KC_DLR,         KC_PIPE,
+    KC_NO,          KC_LEFT_CTRL,   KC_RIGHT_ALT,   KC_LEFT_GUI,    KC_LEFT_SHIFT,  KC_NO,                                          KC_EXLM,        KC_CIRC,        KC_HASH,        KC_ASTR,        KC_DLR,         KC_PIPE,        
     KC_NO,          KC_NO,          KC_LABK,        KC_RABK,        KC_NO,          KC_NO,                                          KC_NO,          KC_TILD,        KC_GRAVE,       KC_AT,          KC_SLASH,       KC_BSLS,
                                                     KC_PERC,        KC_LEFT_SHIFT,                                  KC_NO,          KC_TRANSPARENT
   ),
